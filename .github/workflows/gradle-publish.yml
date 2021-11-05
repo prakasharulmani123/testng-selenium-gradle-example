@@ -4,7 +4,8 @@ on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-latest # Using linux machine
+    runs-on: windows-latest # Using windows machine
+#     runs-on: ubuntu-latest # Using linux machine
 
     steps:
     - uses: actions/checkout@v2 # Checkout the code
