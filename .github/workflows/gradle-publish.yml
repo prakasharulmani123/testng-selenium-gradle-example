@@ -4,8 +4,8 @@ on: [push]
 
 jobs:
   build:
-    runs-on: windows-latest # Using windows machine
-#     runs-on: ubuntu-latest # Using linux machine
+#     runs-on: windows-latest # Using windows machine
+    runs-on: ubuntu-latest # Using linux machine
 
     steps:
     - uses: actions/checkout@v2 # Checkout the code
@@ -14,12 +14,12 @@ jobs:
       uses: actions/setup-java@v1 # Setup JAVA
       with:
         java-version: 1.8
-        chromedriver-version: '88.0.4324.96'
-    - run: chromedriver --url-base=/wd/hub &
-#     - name: Install Google Chrome # Using shell script to install Google Chrome
-#       run: |
-#        chmod +x ./scripts/InstallChrome.sh
-#         ./scripts/InstallChrome.sh
+#         chromedriver-version: '88.0.4324.96'
+#     - run: chromedriver --url-base=/wd/hub &
+    - name: Install Google Chrome # Using shell script to install Google Chrome
+      run: |
+       chmod +x ./scripts/InstallChrome.sh
+        ./scripts/InstallChrome.sh
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew # give permission to Gradle to run the commands
     - name: Build with Gradle
